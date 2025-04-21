@@ -30,7 +30,7 @@ export default {
         },
         secondary: {
           DEFAULT: 'hsl(42, 87%, 65%)',
-          foreground: 'hsl(222, 47%, 11%)'
+          foreground: 'hsl(0, 0%, 0%)'
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
