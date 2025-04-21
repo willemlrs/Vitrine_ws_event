@@ -4,10 +4,10 @@ import { MessageSquare, Mail, Phone } from "lucide-react";
 
 const Footer = () => {
   // Replace with your actual contact information
-  const email = "contact@eventhorizon.com";
-  const phone = "+1 (555) 123-4567";
-  const whatsappNumber = "+123456789";
-  const whatsappURL = `https://wa.me/${whatsappNumber}?text=Hello! I'm interested in event tickets.`;
+  const email = "ws.event.paris@gmail.com";
+  const phone = "+33 6 51 42 02 43";
+  const whatsappNumber = "+33651420243"; // WhatsApp number without the '+' sign
+  const whatsappURL = `https://wa.me/${+33651420243}?text=Hello! I'm interested in event tickets.`;
   
   const currentYear = new Date().getFullYear();
 
@@ -16,9 +16,9 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           <div>
-            <h3 className="text-xl font-bold mb-4">EventHorizon</h3>
+            <h3 className="text-xl font-bold mb-4">ws_event</h3>
             <p className="text-primary-foreground/80 mb-6">
-              Your trusted source for premium event tickets worldwide. We specialize in hard-to-find tickets for sold-out and exclusive events.
+              Your trusted source for premium event tickets worldwide.
             </p>
             <div className="flex space-x-4">
               <a 
@@ -111,7 +111,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-primary-foreground/20 pt-8 text-center text-primary-foreground/60 text-sm">
-          <p>© {currentYear} EventHorizon. All rights reserved.</p>
+          <p>© {currentYear} ws_event. All rights reserved.</p>
           <p className="mt-2">
             <a href="#" className="hover:text-primary-foreground transition-colors">Privacy Policy</a>
             {" | "}

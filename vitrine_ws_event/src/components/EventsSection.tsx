@@ -11,7 +11,7 @@ const upcomingEvents = [
     title: "Jul",
     date: "April 26th - May 23-24, 2025",
     location: "Paris & Marseille, France",
-    image: "public/jul.jpg",
+    image: "jul.jpg",
     category: "Concert",
     isVIP: true
   },
@@ -20,7 +20,7 @@ const upcomingEvents = [
     title: "UEFA Champions League Final",
     date: "May 31th, 2025",
     location: "Munich, Germany",
-    image: "public/uclf.webp",
+    image: "uclf.webp",
     category: "Sports",
     isVIP: true
   },
@@ -29,7 +29,7 @@ const upcomingEvents = [
     title: "Coldplay - Music of the Spheres",
     date: "August 22nd - September 7th, 2025",
     location: "London, UK",
-    image: "public/coldplay.jpg",
+    image: "coldplay.jpg",
     category: "Concert",
     isVIP: true
   },
