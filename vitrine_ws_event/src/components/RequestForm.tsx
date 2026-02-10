@@ -1,31 +1,15 @@
-
 import React, { useRef, useEffect } from "react";
 import { useToast } from "@/components/ui/use-toast";
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardHeader, 
-  CardTitle 
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
+  Form, FormControl, FormDescription, FormField, FormItem,
+  FormLabel, FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
+  Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useForm } from "react-hook-form";
@@ -36,40 +20,32 @@ import { format } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  phone: z.string().min(10, { message: "Please enter a valid phone number." }),
-  eventType: z.string().min(1, { message: "Please select an event type." }),
-  eventName: z.string().min(1, { message: "Please enter the event name." }),
+  name: z.string().min(2),
+  email: z.string().email(),
+  phone: z.string().min(10),
+  eventType: z.string().min(1),
+  eventName: z.string().min(1),
   eventDate: z.date().optional(),
   location: z.string().optional(),
-  numTickets: z.string().min(1, { message: "Please enter the number of tickets." }),
+  numTickets: z.string().min(1),
   budget: z.string().optional(),
   specialRequirements: z.string().optional(),
-  agreeTerms: z.boolean().refine(value => value, {
-    message: "You must agree to the terms and conditions.",
-  }),
+  agreeTerms: z.boolean().refine(value => value),
 });
 
 const RequestForm = () => {
   const formRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
-      eventType: "",
-      eventName: "",
-      location: "",
-      numTickets: "1",
-      budget: "",
-      specialRequirements: "",
-      agreeTerms: false,
+      name: "", email: "", phone: "", eventType: "", eventName: "", location: "",
+      numTickets: "1", budget: "", specialRequirements: "", agreeTerms: false,
     },
   });
 
@@ -77,83 +53,51 @@ const RequestForm = () => {
     try {
       const response = await fetch("https://formspree.io/f/mrbpvgzg", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          ...values,
-          _replyto: values.email // optionnel mais utile
-        })
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...values, _replyto: values.email }),
       });
-  
+
       if (response.ok) {
-        toast({
-          title: "Request sent!",
-          description: "We'll contact you soon regarding your ticket request.",
-        });
+        toast({ title: t("requestForm.success_title"), description: t("requestForm.success_msg") });
         form.reset();
       } else {
-        toast({
-          title: "Something went wrong",
-          description: "Try again later or email us directly.",
-          variant: "destructive"
-        });
+        toast({ title: t("requestForm.error_title"), description: t("requestForm.error_msg"), variant: "destructive" });
       }
-    } catch (err) {
-      toast({
-        title: "Network error",
-        description: "Check your connection and try again.",
-        variant: "destructive"
-      });
+    } catch {
+      toast({ title: t("requestForm.network_title"), description: t("requestForm.network_msg"), variant: "destructive" });
     }
   };
-  
 
   useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.1
-    };
-
-    const handleIntersect = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate-fade-in");
-          observer.unobserve(entry.target);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(handleIntersect, options);
-    
-    if (formRef.current) {
-      observer.observe(formRef.current);
-    }
-
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-fade-in");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    if (formRef.current) observer.observe(formRef.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section 
-      id="request" 
-      className="py-20 bg-muted"
-      ref={formRef}
-    >
+    <section id="request" className="py-20 bg-muted" ref={formRef}>
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16 opacity-100">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Request Tickets</h2>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("requestForm.title")}</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Fill out the form below and we'll contact you with ticket availability and options.
+            {t("requestForm.subtitle")}
           </p>
         </div>
 
-        <Card className="max-w-3xl mx-auto opacity-100">
+        <Card className="max-w-3xl mx-auto">
           <CardHeader>
-            <CardTitle>Ticket Request Form</CardTitle>
-            <CardDescription>
-              Let us know which event you're interested in and we'll find the best tickets for you.
-            </CardDescription>
+            <CardTitle>{t("requestForm.form_title")}</CardTitle>
+            <CardDescription>{t("requestForm.form_description")}</CardDescription>
           </CardHeader>
           <CardContent>
             <Form {...form}>
@@ -164,24 +108,19 @@ const RequestForm = () => {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Full Name</FormLabel>
-                        <FormControl>
-                          <Input placeholder="" {...field} />
-                        </FormControl>
+                        <FormLabel>{t("requestForm.name")}</FormLabel>
+                        <FormControl><Input {...field} /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-                  
                   <FormField
                     control={form.control}
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email</FormLabel>
-                        <FormControl>
-                          <Input placeholder="" {...field} />
-                        </FormControl>
+                        <FormLabel>{t("requestForm.email")}</FormLabel>
+                        <FormControl><Input {...field} /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
@@ -194,33 +133,26 @@ const RequestForm = () => {
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Phone Number</FormLabel>
-                        <FormControl>
-                          <Input placeholder="" {...field} />
-                        </FormControl>
+                        <FormLabel>{t("requestForm.phone")}</FormLabel>
+                        <FormControl><Input {...field} /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-                  
                   <FormField
                     control={form.control}
                     name="eventType"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Event Type</FormLabel>
+                        <FormLabel>{t("requestForm.event_type")}</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select event type" />
-                            </SelectTrigger>
-                          </FormControl>
+                          <FormControl><SelectTrigger><SelectValue placeholder={t("requestForm.placeholder_type")} /></SelectTrigger></FormControl>
                           <SelectContent>
-                            <SelectItem value="concert">Concert</SelectItem>
-                            <SelectItem value="sports">Sports</SelectItem>
-                            <SelectItem value="theatre">Theatre</SelectItem>
-                            <SelectItem value="festival">Festival</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
+                            <SelectItem value="concert">{t("footer.concerts")}</SelectItem>
+                            <SelectItem value="sports">{t("footer.sports")}</SelectItem>
+                            <SelectItem value="theatre">{t("footer.theatre")}</SelectItem>
+                            <SelectItem value="festival">{t("footer.festivals")}</SelectItem>
+                            <SelectItem value="other">{t("footer.special")}</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -234,10 +166,8 @@ const RequestForm = () => {
                   name="eventName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Event Name</FormLabel>
-                      <FormControl>
-                        <Input placeholder="" {...field} />
-                      </FormControl>
+                      <FormLabel>{t("requestForm.event_name")}</FormLabel>
+                      <FormControl><Input {...field} /></FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -249,22 +179,12 @@ const RequestForm = () => {
                     name="eventDate"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Event Date (If known)</FormLabel>
+                        <FormLabel>{t("requestForm.placeholder_date")}</FormLabel>
                         <Popover>
                           <PopoverTrigger asChild>
                             <FormControl>
-                              <Button
-                                variant={"outline"}
-                                className={cn(
-                                  "w-full text-left font-normal",
-                                  !field.value && "text-muted-foreground"
-                                )}
-                              >
-                                {field.value ? (
-                                  format(field.value, "PPP")
-                                ) : (
-                                  <span>Pick a date</span>
-                                )}
+                              <Button variant="outline" className={cn("w-full text-left font-normal", !field.value && "text-muted-foreground")}>
+                                {field.value ? format(field.value, "PPP") : <span>{t("requestForm.form_date")}</span>}
                                 <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                               </Button>
                             </FormControl>
@@ -274,9 +194,7 @@ const RequestForm = () => {
                               mode="single"
                               selected={field.value}
                               onSelect={field.onChange}
-                              disabled={(date) =>
-                                date < new Date(new Date().setHours(0, 0, 0, 0))
-                              }
+                              disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
                               initialFocus
                             />
                           </PopoverContent>
@@ -285,16 +203,13 @@ const RequestForm = () => {
                       </FormItem>
                     )}
                   />
-                  
                   <FormField
                     control={form.control}
                     name="location"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Location (If known)</FormLabel>
-                        <FormControl>
-                          <Input placeholder="" {...field} />
-                        </FormControl>
+                        <FormLabel>{t("requestForm.location")}</FormLabel>
+                        <FormControl><Input {...field} /></FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
@@ -307,13 +222,9 @@ const RequestForm = () => {
                     name="numTickets"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Number of Tickets</FormLabel>
+                        <FormLabel>{t("requestForm.number_tickets")}</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select number" />
-                            </SelectTrigger>
-                          </FormControl>
+                          <FormControl><SelectTrigger><SelectValue placeholder="-" /></SelectTrigger></FormControl>
                           <SelectContent>
                             <SelectItem value="1">1</SelectItem>
                             <SelectItem value="2">2</SelectItem>
@@ -327,19 +238,14 @@ const RequestForm = () => {
                       </FormItem>
                     )}
                   />
-                  
                   <FormField
                     control={form.control}
                     name="budget"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Budget Range (Optional)</FormLabel>
-                        <FormControl>
-                          <Input placeholder="e.g., $500-1000" {...field} />
-                        </FormControl>
-                        <FormDescription>
-                          This helps us find tickets within your price range.
-                        </FormDescription>
+                        <FormLabel>{t("requestForm.budget")}</FormLabel>
+                        <FormControl><Input {...field} /></FormControl>
+                        <FormDescription>{t("requestForm.budget_help")}</FormDescription>
                         <FormMessage />
                       </FormItem>
                     )}
@@ -351,17 +257,11 @@ const RequestForm = () => {
                   name="specialRequirements"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Special Requirements (Optional)</FormLabel>
+                      <FormLabel>{t("requestForm.requirements")}</FormLabel>
                       <FormControl>
-                        <Textarea 
-                          placeholder="Any special requests or requirements for your tickets..." 
-                          className="resize-none" 
-                          {...field} 
-                        />
+                        <Textarea className="resize-none" {...field} />
                       </FormControl>
-                      <FormDescription>
-                        E.g., VIP access, specific seating preferences, accessibility needs
-                      </FormDescription>
+                      <FormDescription>{t("requestForm.requirements_help")}</FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -373,27 +273,18 @@ const RequestForm = () => {
                   render={({ field }) => (
                     <FormItem className="flex flex-row items-start space-x-3 space-y-0">
                       <FormControl>
-                        <Checkbox
-                          checked={field.value}
-                          onCheckedChange={field.onChange}
-                        />
+                        <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                       </FormControl>
                       <div className="space-y-1 leading-none">
-                        <FormLabel>
-                          I agree to the terms and conditions
-                        </FormLabel>
-                        <FormDescription>
-                          By submitting this form, you consent to being contacted about your ticket request.
-                        </FormDescription>
+                        <FormLabel>{t("requestForm.agree")}</FormLabel>
+                        <FormDescription>{t("requestForm.agree_help")}</FormDescription>
                       </div>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
 
-                <Button type="submit" className="w-full">
-                  Submit Request
-                </Button>
+                <Button type="submit" className="w-full">{t("requestForm.submit")}</Button>
               </form>
             </Form>
           </CardContent>

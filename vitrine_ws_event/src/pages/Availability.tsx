@@ -85,7 +85,7 @@ export default function Availability() {
 
       {/* Filtres */}
       <div className="flex flex-wrap gap-4 justify-center mb-10">
-        {["Tous", "Football", "Concert"].map((cat) => (
+        {["All", "Football", "Concerts"].map((cat) => (
           <button
             key={cat}
             onClick={() => setFiltre(cat)}

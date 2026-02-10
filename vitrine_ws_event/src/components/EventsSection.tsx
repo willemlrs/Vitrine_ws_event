@@ -4,12 +4,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CalendarDays, MapPin } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const upcomingEvents = [
   {
     id: 1,
-    title: "Jul",
-    date: "April 26th - May 23-24, 2025",
+    title: "JUL",
+    date: "15-16 mai (Paris) · 29-30 mai (Marseille)",
     location: "Paris & Marseille, France",
     image: "jul.jpg",
     category: "Concert",
@@ -17,19 +18,19 @@ const upcomingEvents = [
   },
   {
     id: 2,
-    title: "UEFA Champions League Final",
-    date: "May 31th, 2025",
-    location: "Munich, Germany",
+    title: "Finale Ligue des Champions",
+    date: "30 mai 2026",
+    location: "Budapest, Hongrie - Puskás Aréna",
     image: "uclf.webp",
     category: "Sports",
     isVIP: true
   },
   {
     id: 3,
-    title: "Coldplay - Music of the Spheres",
-    date: "August 22nd - September 7th, 2025",
-    location: "London, UK",
-    image: "coldplay.jpg",
+    title: "Bad Bunny",
+    date: "30 mai - 15 juin 2026",
+    location: "Madrid, Espagne - Estadio Riyadh Air Metropolitano",
+    image: "badbunny.jpg",
     category: "Concert",
     isVIP: true
   },
@@ -63,6 +64,7 @@ const upcomingEvents = [
 ];
 
 const EventsSection = () => {
+  const { t } = useTranslation();
   const sectionRef = useRef<HTMLDivElement>(null);
   const eventRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -118,9 +120,9 @@ const EventsSection = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16 opacity-0" ref={el => eventRefs.current[0] = el}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Events</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("events.featured")}</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Secure your tickets now for these high-demand events before they sell out.
+            {t("events.description")}
           </p>
         </div>
 
@@ -144,8 +146,8 @@ const EventsSection = () => {
                       {event.category}
                     </Badge>
                     {event.isVIP && (
-                      <Badge className="bg-secondary text-secondary-foreground">
-                        VIP Available
+                      <Badge className="bg-yellow-500 text-white">
+                        {t("events.vip")}
                       </Badge>
                     )}
                   </div>
@@ -161,7 +163,7 @@ const EventsSection = () => {
                     <span>{event.location}</span>
                   </div>
                   <Button asChild className="w-full">
-                    <a href="#request">Request Tickets</a>
+                    <a href="#request">{t("request_ticket")}</a>
                   </Button>
                 </CardContent>
               </Card>

@@ -1,0 +1,89 @@
+{
+  "welcome": "Bienvenue chez WS Event",
+  "request_ticket": "Demander des billets",
+  "services": "Services",
+  "testimonials": "Témoignages",
+  "availability": "Disponibilité",
+  "contact": "Contactez-nous",
+  "hero": {
+    "title": "ws_event",
+    "subtitle": "Un billet, une ambiance, un souvenir pour toujours",
+    "cta_request": "Demander des billets",
+    "cta_browse": "Voir les événements"
+  },
+  "contactSection": {
+    "title": "Contactez-nous",
+    "subtitle": "Des questions ou besoin de nous joindre ? Nous vous aidons à trouver les billets parfaits.",
+    "get_in_touch": "Nous contacter",
+    "email": "Email",
+    "phone": "Téléphone",
+    "business_hours": "Disponibilité",
+    "follow_us": "Suivez-nous",
+    "instagram": "Instagram",
+    "x": "X",
+    "tiktok": "TikTok"
+  },
+  "events": {
+    "title": "Événements à la une",
+    "description": "Réservez vos billets dès maintenant pour ces événements très demandés avant qu'ils ne soient complets.",
+    "vip": "VIP Disponible",
+    "label": "Événements",
+    "featured": "Événements à l'affiche "
+  },
+  "footer": {
+  "brand_description": "Votre source de confiance pour des billets dans le monde entier.",
+  "quick_links": "Liens utiles",
+  "our_services": "Nos services",
+  "featured_events": "Événements à l'affiche",
+  "testimonials": "Témoignages",
+  "request_tickets": "Demander des billets",
+  "contact_us": "Contactez-nous",
+  "event_categories": "Catégories d'événements",
+  "concerts": "Concerts",
+  "sports": "Sport",
+  "theatre": "Théâtre & Broadway",
+  "festivals": "Festivals",
+  "special": "Événements spéciaux",
+  "copyright": "Tous droits réservés.",
+  "privacy": "Politique de confidentialité",
+  "terms": "Conditions d'utilisation"
+  },
+  "requestForm": {
+  "title": "Demander des billets",
+  "subtitle": "Remplissez le formulaire ci-dessous et nous vous contacterons avec les options disponibles.",
+  "form_title": "Formulaire de demande",
+  "form_description": "Dites-nous pour quel événement vous souhaitez des billets et nous trouverons les meilleurs pour vous.",
+  "name": "Nom et Prénom",
+  "email": "Email",
+  "phone": "Numéro de téléphone",
+  "event_type": "Type d'événement",
+  "event_name": "Nom de l'événement",
+  "event_date": "Date de l'événement (si connue)",
+  "location": "Lieu (si connu)",
+  "number_tickets": "Nombre de billets",
+  "budget": "Budget par place (optionnel)",
+  "budget_help": "Cela nous aide à trouver des billets dans votre gamme de prix.",
+  "requirements": "Besoins spécifiques (optionnel)",
+  "requirements_help": "Ex : accès VIP, préférences de placement, besoins d'accessibilité",
+  "agree": "J'accepte les termes et conditions",
+  "agree_help": "En soumettant ce formulaire, vous acceptez d'être contacté au sujet de votre demande.",
+  "submit": "Envoyer la demande",
+  "placeholder_date": "Choisissez une date",
+  "placeholder_type": "Choisissez le type d'événement",
+  "placeholder_number": "Choisissez le nombre",
+  "form_date": "JJ/MM/AAAA",
+  "success_msg": "Nous reviendrons vers vous dans les meilleurs délais",
+  "success_title" : "Demande envoyée avec succès ✅"
+  },
+  "testimonialsSection": {
+  "title": "Avis clients",
+  "subtitle": "Découvrez quelques témoignages de nos clients.",
+  "button": "Laisser un avis",
+  "form": {
+    "placeholder": "Votre message ici...",
+    "image_placeholder": "URL de l'image (optionnelle)",
+    "submit": "Envoyer l’avis",
+    "name_placeholder": "Nom"
+    }
+  }
+}

@@ -1,14 +1,14 @@
-
 import React from "react";
 import { MessageSquare, Mail, Phone } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
-  // Replace with your actual contact information
+  const { t } = useTranslation();
+
   const email = "ws.event.paris@gmail.com";
   const phone = "+33 6 51 42 02 43";
-  const whatsappNumber = "+33651420243"; // WhatsApp number without the '+' sign
-  const whatsappURL = `https://wa.me/${+33651420243}?text=Hello! I'm interested in event tickets.`;
-  
+  const whatsappNumber = "+33651420243";
+  const whatsappURL = `https://wa.me/${whatsappNumber}?text=Hello! I'm interested in event tickets.`;
   const currentYear = new Date().getFullYear();
 
   return (
@@ -18,104 +18,50 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">ws_event</h3>
             <p className="text-primary-foreground/80 mb-6">
-              Your trusted source for premium event tickets worldwide.
+              {t("footer.brand_description")}
             </p>
             <div className="flex space-x-4">
-              <a 
-                href={whatsappURL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-primary-foreground/10 hover:bg-primary-foreground/20 rounded-full transition-colors"
-                aria-label="WhatsApp"
-              >
+              <a href={whatsappURL} target="_blank" rel="noopener noreferrer" className="p-2 bg-primary-foreground/10 hover:bg-primary-foreground/20 rounded-full transition-colors" aria-label="WhatsApp">
                 <MessageSquare className="h-5 w-5" />
               </a>
-              <a 
-                href={`mailto:${email}`}
-                className="p-2 bg-primary-foreground/10 hover:bg-primary-foreground/20 rounded-full transition-colors"
-                aria-label="Email"
-              >
+              <a href={`mailto:${email}`} className="p-2 bg-primary-foreground/10 hover:bg-primary-foreground/20 rounded-full transition-colors" aria-label="Email">
                 <Mail className="h-5 w-5" />
               </a>
-              <a 
-                href={`tel:${phone}`}
-                className="p-2 bg-primary-foreground/10 hover:bg-primary-foreground/20 rounded-full transition-colors"
-                aria-label="Phone"
-              >
+              <a href={`tel:${phone}`} className="p-2 bg-primary-foreground/10 hover:bg-primary-foreground/20 rounded-full transition-colors" aria-label="Phone">
                 <Phone className="h-5 w-5" />
               </a>
             </div>
           </div>
-          
+
           <div>
-            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+            <h3 className="text-xl font-bold mb-4">{t("footer.quick_links")}</h3>
             <ul className="space-y-2">
-              <li>
-                <a href="#services" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                  Our Services
-                </a>
-              </li>
-              <li>
-                <a href="#events" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                  Featured Events
-                </a>
-              </li>
-              <li>
-                <a href="#testimonials" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                  Testimonials
-                </a>
-              </li>
-              <li>
-                <a href="#request" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                  Request Tickets
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                  Contact Us
-                </a>
-              </li>
+              <li><a href="#services" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">{t("footer.our_services")}</a></li>
+              <li><a href="#events" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">{t("footer.featured_events")}</a></li>
+              <li><a href="#testimonials" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">{t("footer.testimonials")}</a></li>
+              <li><a href="#request" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">{t("footer.request_tickets")}</a></li>
+              <li><a href="#contact" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">{t("footer.contact_us")}</a></li>
             </ul>
           </div>
-          
+
           <div>
-            <h3 className="text-xl font-bold mb-4">Event Categories</h3>
+            <h3 className="text-xl font-bold mb-4">{t("footer.event_categories")}</h3>
             <ul className="space-y-2">
-              <li>
-                <a href="#events" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                  Concerts
-                </a>
-              </li>
-              <li>
-                <a href="#events" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                  Sports
-                </a>
-              </li>
-              <li>
-                <a href="#events" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                  Theatre & Broadway
-                </a>
-              </li>
-              <li>
-                <a href="#events" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                  Festivals
-                </a>
-              </li>
-              <li>
-                <a href="#events" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                  Special Events
-                </a>
-              </li>
+              <li><a href="#events" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">{t("footer.concerts")}</a></li>
+              <li><a href="#events" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">{t("footer.sports")}</a></li>
+              <li><a href="#events" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">{t("footer.theatre")}</a></li>
+              <li><a href="#events" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">{t("footer.festivals")}</a></li>
+              <li><a href="#events" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">{t("footer.special")}</a></li>
             </ul>
           </div>
         </div>
-        
+
         <div className="border-t border-primary-foreground/20 pt-8 text-center text-primary-foreground/60 text-sm">
-          <p>© {currentYear} ws_event. All rights reserved.</p>
+          <p>© {currentYear} ws_event. {t("footer.copyright")}</p>
           <p className="mt-2">
-            <a href="#" className="hover:text-primary-foreground transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-primary-foreground transition-colors">{t("footer.privacy")}</a>
             {" | "}
-            <a href="#" className="hover:text-primary-foreground transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-primary-foreground transition-colors">{t("footer.terms")}</a>
           </p>
         </div>
       </div>

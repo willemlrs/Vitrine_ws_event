@@ -1,0 +1,89 @@
+{
+  "welcome": "Welcome to WS Event",
+  "request_ticket": "Request Tickets",
+  "services": "Services",
+  "testimonials": "Testimonials",
+  "availability": "Availability",
+  "contact": "Contact Us",
+  "hero": {
+    "title": "ws_event",
+    "subtitle": "One ticket, one atmosphere, one memory forever",
+    "cta_request": "Request Tickets",
+    "cta_browse": "Browse Events"
+  },
+  "contactSection": {
+    "title": "Contact Us",
+    "subtitle": "Have questions or need to get in touch? We're here to help you find the perfect tickets.",
+    "get_in_touch": "Get in Touch",
+    "email": "Email",
+    "phone": "Phone",
+    "business_hours": "Business Hours",
+    "follow_us": "Follow us",
+    "instagram": "Instagram",
+    "x": "X",
+    "tiktok": "TikTok"
+  },
+  "events": {
+    "title": "Featured Events",
+    "description": "Secure your tickets now for these high-demand events before they sell out.",
+    "vip": "VIP Available",
+    "label": "Events",
+    "featured": "Featured Events "
+  },
+  "footer": {
+  "brand_description": "Your trusted source for premium event tickets worldwide.",
+  "quick_links": "Quick Links",
+  "our_services": "Our Services",
+  "featured_events": "Featured Events",
+  "testimonials": "Testimonials",
+  "request_tickets": "Request Tickets",
+  "contact_us": "Contact Us",
+  "event_categories": "Event Categories",
+  "concerts": "Concerts",
+  "sports": "Sports",
+  "theatre": "Theatre & Broadway",
+  "festivals": "Festivals",
+  "special": "Special Events",
+  "copyright": "All rights reserved.",
+  "privacy": "Privacy Policy",
+  "terms": "Terms of Service"
+  },
+  "requestForm": {
+  "title": "Request Tickets",
+  "subtitle": "Fill out the form below and we'll contact you with ticket availability and options.",
+  "form_title": "Ticket Request Form",
+  "form_description": "Let us know which event you're interested in and we'll find the best tickets for you.",
+  "name": "Full Name",
+  "email": "Email",
+  "phone": "Phone Number",
+  "event_type": "Event Type",
+  "event_name": "Event Name",
+  "event_date": "Event Date (If known)",
+  "location": "Location (If known)",
+  "number_tickets": "Number of Tickets",
+  "budget": "Budget for each ticket (Optional)",
+  "budget_help": "This helps us find tickets within your price range.",
+  "requirements": "Special Requirements (Optional)",
+  "requirements_help": "E.g., VIP access, specific seating preferences, accessibility needs",
+  "agree": "I agree to the terms and conditions",
+  "agree_help": "By submitting this form, you consent to being contacted about your ticket request.",
+  "submit": "Submit Request",
+  "placeholder_date": "Pick a date",
+  "placeholder_type": "Select event type",
+  "placeholder_number": "Select number",  
+  "form_date": "MM/JJ/AAAA",
+  "success_msg": "We will get back to you as soon as possible.",
+  "success_title" : "Request sent successfully ✅"
+  },
+  "testimonialsSection": {
+  "title": "Testimonials",
+  "subtitle": "Read some of our customers' testimonials.",
+  "button": "Leave a review",
+  "form": {
+    "placeholder": "Your message here...",
+    "image_placeholder": "Image URL (optional)",
+    "submit": "Send Review",
+    "name_placeholder": "Name"
+  }
+  }
+}

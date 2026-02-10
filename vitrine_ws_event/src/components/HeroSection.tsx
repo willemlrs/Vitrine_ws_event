@@ -1,4 +1,4 @@
-
+import { useTranslation } from "react-i18next";
 import React, { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
@@ -6,6 +6,8 @@ import { ChevronDown } from "lucide-react";
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
+  const { t } = useTranslation();
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,17 +49,17 @@ const HeroSection = () => {
           className="w-32 md:w-48 mx-auto mb-8 animate-fade-in"
         />
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg animate-fade-in">
-          ws_event
+          {t("hero.title")}
         </h1>
         <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8 drop-shadow-md animate-fade-in italic">
-          One ticket, one atmosphere, one memory forever
+          {t("hero.subtitle")}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
           <Button asChild size="lg" className="text-lg bg-secondary text-primary hover:bg-secondary/90">
-            <a href="#request">Request Tickets</a>
+            <a href="#request">{t("hero.cta_request")}</a>
           </Button>
           <Button asChild size="lg" variant="outline" className="text-lg bg-transparent border-white text-white hover:bg-white/10">
-            <a href="#events">Browse Events</a>
+            <a href="#events">{t("hero.cta_browse")}</a>
           </Button>
         </div>
       </div>

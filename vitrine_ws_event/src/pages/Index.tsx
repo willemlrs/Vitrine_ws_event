@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import ServicesSection from "@/components/ServicesSection";
+// import ServicesSection from "@/components/ServicesSection";
 import EventsSection from "@/components/EventsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import RequestForm from "@/components/RequestForm";
@@ -18,7 +18,7 @@ const Index = () => {
     <div className="min-h-screen">
       <Navbar />
       <HeroSection />
-      <ServicesSection />
+      {/* <ServicesSection /> */}
       <EventsSection />
       <TestimonialsSection />
       <RequestForm />
