@@ -56,9 +56,6 @@ const Navbar = () => {
           <a href="#request" className="text-white hover:text-secondary transition-colors">
             Request Tickets
           </a>
-          <Link to="/availability" className="text-white hover:text-secondary transition-colors">
-            Disponibilité
-          </Link>
         </nav>
 
         <div className="hidden md:block">
@@ -109,13 +106,6 @@ const Navbar = () => {
             >
               Request Tickets
             </a>
-            <Link 
-              to="/availability" 
-              className="text-white hover:text-secondary transition-colors"
-              onClick={toggleMenu}
-            >
-              Disponibilité
-            </Link>
 
 
             <Button asChild variant="outline" className="w-full bg-transparent border-secondary text-secondary hover:bg-secondary/10">
