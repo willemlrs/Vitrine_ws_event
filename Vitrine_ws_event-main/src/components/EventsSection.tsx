@@ -9,7 +9,7 @@ const upcomingEvents = [
   {
     id: 1,
     title: "JUL",
-    date: "15-16 mai (Paris) · 29-30 mai (Marseille)",
+    date: "May 15–16 (Paris) · May 29–30 (Marseille)",
     location: "Paris & Marseille, France",
     image: "jul.jpg",
     category: "Concert",
@@ -17,9 +17,9 @@ const upcomingEvents = [
   },
   {
     id: 2,
-    title: "Finale Ligue des Champions",
-    date: "30 mai 2026",
-    location: "Budapest, Hongrie - Puskás Aréna",
+    title: "UEFA Champions League Final",
+    date: "May 30, 2026",
+    location: "Budapest, Hungary – Puskás Aréna",
     image: "uclf.webp",
     category: "Sports",
     isVIP: true
@@ -27,8 +27,8 @@ const upcomingEvents = [
   {
     id: 3,
     title: "Bad Bunny",
-    date: "30 mai - 15 juin 2026",
-    location: "Madrid, Espagne - Estadio Riyadh Air Metropolitano",
+    date: "May 30 – June 15, 2026",
+    location: "Madrid, Spain – Estadio Metropolitano",
     image: "badbunny.jpg",
     category: "Concert",
     isVIP: true
