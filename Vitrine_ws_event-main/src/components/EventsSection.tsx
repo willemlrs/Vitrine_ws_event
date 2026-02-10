@@ -8,8 +8,8 @@ import { CalendarDays, MapPin } from "lucide-react";
 const upcomingEvents = [
   {
     id: 1,
-    title: "Jul",
-    date: "April 26th - May 23-24, 2025",
+    title: "JUL",
+    date: "15-16 mai (Paris) · 29-30 mai (Marseille)",
     location: "Paris & Marseille, France",
     image: "jul.jpg",
     category: "Concert",
@@ -17,19 +17,19 @@ const upcomingEvents = [
   },
   {
     id: 2,
-    title: "UEFA Champions League Final",
-    date: "May 31th, 2025",
-    location: "Munich, Germany",
+    title: "Finale Ligue des Champions",
+    date: "30 mai 2026",
+    location: "Budapest, Hongrie - Puskás Aréna",
     image: "uclf.webp",
     category: "Sports",
     isVIP: true
   },
   {
     id: 3,
-    title: "Coldplay - Music of the Spheres",
-    date: "August 22nd - September 7th, 2025",
-    location: "London, UK",
-    image: "coldplay.jpg",
+    title: "Bad Bunny",
+    date: "30 mai - 15 juin 2026",
+    location: "Madrid, Espagne - Estadio Riyadh Air Metropolitano",
+    image: "badbunny.jpg",
     category: "Concert",
     isVIP: true
   },
