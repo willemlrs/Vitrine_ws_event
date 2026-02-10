@@ -1,0 +1,11 @@
+# Dossiers avec gros fichiers (vidéos) — non déployés sur le site
+JUL TIKTOK/
+tiktokBAPPE/
+DembeleTiktok/
+CREATION WTR/
+
+# Fichiers / dossiers courants
+node_modules
+.DS_Store
+*.log
+dist
