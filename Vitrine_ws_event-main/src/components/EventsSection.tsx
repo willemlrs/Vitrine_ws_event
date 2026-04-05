@@ -8,15 +8,6 @@ import { CalendarDays, MapPin } from "lucide-react";
 const upcomingEvents = [
   {
     id: 1,
-    title: "JUL",
-    date: "May 15–16 (Paris) · May 29–30 (Marseille)",
-    location: "Paris & Marseille, France",
-    image: "jul.jpg",
-    category: "Concert",
-    isVIP: true
-  },
-  {
-    id: 2,
     title: "UEFA Champions League Final",
     date: "May 30, 2026",
     location: "Budapest, Hungary – Puskás Aréna",
@@ -25,7 +16,7 @@ const upcomingEvents = [
     isVIP: true
   },
   {
-    id: 3,
+    id: 2,
     title: "Bad Bunny",
     date: "May 30 – June 15, 2026",
     location: "Madrid, Spain – Estadio Metropolitano",
@@ -34,7 +25,25 @@ const upcomingEvents = [
     isVIP: true
   },
   {
+    id: 3,
+    title: "Céline Dion",
+    date: "September 12 – October 14, 2026",
+    location: "Paris, France",
+    image: "/celine-dion-paris-2026.png",
+    category: "Concert",
+    isVIP: true
+  },
+  {
     id: 4,
+    title: "JUL",
+    date: "May 15–16 (Paris) · May 29–30 (Marseille)",
+    location: "Paris & Marseille, France",
+    image: "jul.jpg",
+    category: "Concert",
+    isVIP: true
+  },
+  {
+    id: 5,
     title: "Formula 1 Monaco Grand Prix",
     date: "May 25, 2025",
     location: "Monte Carlo, Monaco",
@@ -43,7 +52,7 @@ const upcomingEvents = [
     isVIP: true
   },
   {
-    id: 5,
+    id: 6,
     title: "The Lion King - Broadway",
     date: "Multiple dates",
     location: "New York, USA",
@@ -52,7 +61,7 @@ const upcomingEvents = [
     isVIP: false
   },
   {
-    id: 6,
+    id: 7,
     title: "Ed Sheeran World Tour",
     date: "July 8, 2025",
     location: "Sydney, Australia",

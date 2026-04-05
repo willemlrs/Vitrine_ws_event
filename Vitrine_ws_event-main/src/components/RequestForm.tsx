@@ -333,12 +333,12 @@ const RequestForm = () => {
                     name="budget"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Budget Range (Optional)</FormLabel>
+                        <FormLabel>Budget Range per Ticket (Optional)</FormLabel>
                         <FormControl>
-                          <Input placeholder="e.g., $500-1000" {...field} />
+                          <Input placeholder="e.g., €50–100 per ticket" {...field} />
                         </FormControl>
                         <FormDescription>
-                          This helps us find tickets within your price range.
+                          Indicate your target price per seat, not the total for all tickets.
                         </FormDescription>
                         <FormMessage />
                       </FormItem>
